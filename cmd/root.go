@@ -10,13 +10,13 @@ import (
 
 var cfgFile string
 
-var rootCmd = &cobra.Command{ // ketika kita 
+var rootCmd = &cobra.Command{ // ketika command `go run main.go` akan running dari sini
 	Use:   "core-api",
 	Short: "this api for news portal",
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Run(startCmd, nil)
 	},
-}
+} // sampai sini
 
 func Execute() {
 	cobra.CheckErr(rootCmd.Execute())
