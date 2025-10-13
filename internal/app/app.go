@@ -3,6 +3,7 @@ package app
 import (
 	"bwa-news/config"
 
+	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/rs/zerolog/log"
 )
 
@@ -12,4 +13,8 @@ func RunServer() {
 	if err != nil {
 		log.Fatal().Msgf("Error to connect to database: %v", err)
 	}
+
+	//Cloudflare R2
+	cdfR2 := cfg.LoadAwsConfig()
+	_ = s3.NewFromConfig(cdfR2)
 }
