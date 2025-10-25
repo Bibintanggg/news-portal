@@ -43,7 +43,7 @@ func RunServer() {
 
 	_ = app.Group("/api")
 
-	go func() {
+	go func() { // go routines
 		if cfg.App.AppPort == "" {
 			cfg.App.AppPort = os.Getenv("APP_PORT")
 		}
